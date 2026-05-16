@@ -1,0 +1,39 @@
+name: Build Stoic Master APK
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      
+      - name: Install Bubblewrap CLI
+        run: npm i -g @bubblewrap/cli
+      
+      - name: Build TWA
+        run: |
+          bubblewrap init --manifest=https://stoic-master.netlify.app/manifest.json --directory=app
+          cd app
+          bubblewrap build
+      
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: stoic-master-release-apk
+          path: app/app-release-signed.apk
+          retention-days: 30

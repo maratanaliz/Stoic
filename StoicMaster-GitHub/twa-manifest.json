@@ -1,0 +1,21 @@
+{
+  "packageId": "com.stoicmaster.twa",
+  "host": "stoic-master.netlify.app",
+  "name": "Stoic Master",
+  "launcherName": "Stoic Master",
+  "display": "standalone",
+  "orientation": "portrait",
+  "themeColor": "#000000",
+  "navigationColor": "#000000",
+  "backgroundColor": "#000000",
+  "enableNotifications": false,
+  "startUrl": "https://stoic-master.netlify.app/",
+  "iconUrl": "https://stoic-master.netlify.app/icon-512.png",
+  "maskableIconUrl": "https://stoic-master.netlify.app/icon-512.png",
+  "maskableIcon": true,
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "minSdkVersion": 21,
+  "webManifestUrl": "https://stoic-master.netlify.app/manifest.json",
+  "fallbackType": "customtabs"
+}
